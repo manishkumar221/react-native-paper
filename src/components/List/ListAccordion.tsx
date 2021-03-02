@@ -28,6 +28,7 @@ type Props = {
    * Callback which returns a React element to display on the left side.
    */
   left?: (props: { color: string }) => React.ReactNode;
+
   /**
    * Whether the accordion is expanded
    * If this prop is provided, the accordion will behave as a "controlled component".
