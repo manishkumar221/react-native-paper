@@ -28,6 +28,7 @@ type Props = {
    * Callback which returns a React element to display on the left side.
    */
   left?: (props: { color: string }) => React.ReactNode;
+right?: (props: { color: string }) => React.ReactNode;
   /**
    * Whether the accordion is expanded
    * If this prop is provided, the accordion will behave as a "controlled component".
@@ -127,6 +128,7 @@ type Props = {
  */
 const ListAccordion = ({
   left,
+    right,
   title,
   description,
   children,
@@ -188,6 +190,11 @@ const ListAccordion = ({
         <View style={styles.row} pointerEvents="none">
           {left
             ? left({
+                color: isExpanded ? theme.colors.primary : descriptionColor,
+              })
+            : null}
+           {right
+            ?right({
                 color: isExpanded ? theme.colors.primary : descriptionColor,
               })
             : null}
